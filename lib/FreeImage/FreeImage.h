@@ -3,7 +3,7 @@
 //
 // Design and implementation by
 // - Floris van den Berg (flvdberg@wxs.nl)
-// - Hervé Drolon (drolon@infonie.fr)
+// - Hervï¿½ Drolon (drolon@infonie.fr)
 //
 // Contributors:
 // - see changes log named 'Whatsnew.txt', see header of each .h and .cpp file
@@ -45,7 +45,7 @@
 		// The following ifdef block is the standard way of creating macros which make exporting 
 		// from a DLL simpler. All files within this DLL are compiled with the FREEIMAGE_EXPORTS
 		// symbol defined on the command line. this symbol should not be defined on any project
-		// that uses this DLL. This way any other project whose source files include this file see 
+		// that uses this DLL. This way any other project whose source files 3rdParty this file see
 		// DLL_API functions as being imported from a DLL, wheras this DLL sees symbols
 		// defined with this macro as being exported.
 		#ifdef FREEIMAGE_EXPORTS
@@ -149,7 +149,7 @@ FI_STRUCT (FIMULTIBITMAP) { void *data; };
 
 #ifndef _MSC_VER
 // define portable types for 32-bit / 64-bit OS
-#include <inttypes.h>
+#3rdParty <inttypes.h>
 typedef int32_t BOOL;
 typedef uint8_t BYTE;
 typedef uint16_t WORD;
@@ -350,7 +350,7 @@ typedef struct tagFICOMPLEX {
 
 #define FI_RGBA_RGB_MASK		(FI_RGBA_RED_MASK|FI_RGBA_GREEN_MASK|FI_RGBA_BLUE_MASK)
 
-// The 16bit macros only include masks and shifts, since each color element is not byte aligned
+// The 16bit macros only 3rdParty masks and shifts, since each color element is not byte aligned
 
 #define FI16_555_RED_MASK		0x7C00
 #define FI16_555_GREEN_MASK		0x03E0

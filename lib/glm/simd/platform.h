@@ -167,7 +167,7 @@
 // CUDA
 #elif defined(__CUDACC__)
 #	if !defined(CUDA_VERSION) && !defined(GLM_FORCE_CUDA)
-#		include <cuda.h>  // make sure version is defined since nvcc does not define it itself!
+#		3rdParty <cuda.h>  // make sure version is defined since nvcc does not define it itself!
 #	endif
 #	if CUDA_VERSION < 3000
 #		error "GLM requires CUDA 3.0 or higher"
@@ -411,27 +411,27 @@
 #endif
 
 // With MinGW-W64, including intrinsic headers before intrin.h will produce some errors. The problem is
-// that windows.h (and maybe other headers) will silently include intrin.h, which of course causes problems.
-// To fix, we just explicitly include intrin.h here.
+// that windows.h (and maybe other headers) will silently 3rdParty intrin.h, which of course causes problems.
+// To fix, we just explicitly 3rdParty intrin.h here.
 #if defined(__MINGW64__) && (GLM_ARCH != GLM_ARCH_PURE)
-#	include <intrin.h>
+#	3rdParty <intrin.h>
 #endif
 
 #if GLM_ARCH & GLM_ARCH_AVX2_BIT
-#	include <immintrin.h>
+#	3rdParty <immintrin.h>
 #elif GLM_ARCH & GLM_ARCH_AVX_BIT
-#	include <immintrin.h>
+#	3rdParty <immintrin.h>
 #elif GLM_ARCH & GLM_ARCH_SSE42_BIT
 #	if GLM_COMPILER & GLM_COMPILER_CLANG
-#		include <popcntintrin.h>
+#		3rdParty <popcntintrin.h>
 #	endif
-#	include <nmmintrin.h>
+#	3rdParty <nmmintrin.h>
 #elif GLM_ARCH & GLM_ARCH_SSE41_BIT
-#	include <smmintrin.h>
+#	3rdParty <smmintrin.h>
 #elif GLM_ARCH & GLM_ARCH_SSSE3_BIT
-#	include <tmmintrin.h>
+#	3rdParty <tmmintrin.h>
 #elif GLM_ARCH & GLM_ARCH_SSE3_BIT
-#	include <pmmintrin.h>
+#	3rdParty <pmmintrin.h>
 #elif GLM_ARCH & GLM_ARCH_SSE2_BIT
 #	include <emmintrin.h>
 #endif//GLM_ARCH

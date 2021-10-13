@@ -1,4 +1,5 @@
 #include <iostream>
+#include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 #include <FreeImage/FreeImage.h>
 

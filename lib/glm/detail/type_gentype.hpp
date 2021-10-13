@@ -192,4 +192,4 @@ namespace detail
 }//namespace detail
 }//namespace glm
 
-//#include "type_gentype.inl"
+//#3rdParty "type_gentype.inl"
