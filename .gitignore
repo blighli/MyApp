@@ -10,6 +10,7 @@
 # Compiled Object files
 *.o
 *.obj
+*.ilk
 
 # Precompiled Headers
 *.gch
