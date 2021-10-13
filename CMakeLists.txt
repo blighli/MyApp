@@ -11,9 +11,15 @@ find_package(OpenGL)
 find_library(GLFW NAMES glfw3dll.lib PATHS lib/win32)
 find_library(FreeImage NAMES FreeImage.lib PATHS lib/win32)
 
+list(APPEND LIBS
+        "${GLFW}"
+        "${FreeImage}"
+        "${OPENGL_LIBRARIES}")
+
 include_directories(include)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
+target_link_libraries(${PROJECT_NAME} ${LIBS})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME_DEBUG ${PROJECT_NAME}-debug )
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME_RELEASE ${PROJECT_NAME}-release )
