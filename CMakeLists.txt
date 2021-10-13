@@ -10,17 +10,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/bin")
 find_package(OpenGL)
 find_library(GLFW NAMES glfw3dll.lib PATHS lib/GLFW)
 find_library(FreeImage NAMES FreeImage.lib PATHS lib/FreeImage)
-add_subdirectory(lib/GLAD)
 
 list(APPEND LIBS
         "${GLFW}"
-        "${GLAD}"
         "${FreeImage}"
         "${OPENGL_LIBRARIES}")
 
 include_directories(lib)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp lib/GLAD/glad.c)
+
 target_link_libraries(${PROJECT_NAME} ${LIBS})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME_DEBUG ${PROJECT_NAME}-debug )
