@@ -1,10 +1,9 @@
 #include "MyWindow.h"
 #include <iostream>
+#include <GLAD/glad.h>
 
-MyWindow::MyWindow(int w, int h, std::string name) {
-    this->width = w;
-    this->height = h;
-    this->windowName = name;
+MyWindow::MyWindow(int w, int h, std::string name) : width{w}, height{h}, windowName{name}{
+    initWindow();
 }
 
 MyWindow::~MyWindow() {
@@ -12,8 +11,11 @@ MyWindow::~MyWindow() {
     glfwTerminate();
 }
 
+bool MyWindow::shouldClose() {
+    return glfwWindowShouldClose(window);
+}
 
-void MyWindow::initWindow() {
+int MyWindow::initWindow() {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -24,8 +26,17 @@ void MyWindow::initWindow() {
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
-        return;
+        return -1;
     }
     glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebufferResizeCallback);
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+        std::cout << "Failed to initialize OpenGL context" << std::endl;
+        return -1;
+    }
 
+}
+
+void MyWindow::framebufferResizeCallback(GLFWwindow *window, int width, int height) {
+    glViewport(0, 0, width, height);
 }

@@ -22,6 +22,8 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/MyWindow.h
     src/MyWindow.cpp
+    src/MyApp.h
+    src/MyApp.cpp
     lib/GLAD/glad.c)
 
 target_link_libraries(${PROJECT_NAME} ${LIBS})

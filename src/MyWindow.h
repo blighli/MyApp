@@ -7,9 +7,11 @@ class MyWindow {
     public:
     MyWindow(int w, int h, std::string name);
     ~MyWindow();
+    bool shouldClose();
 
     private:
-    void initWindow();
+    static void framebufferResizeCallback(GLFWwindow *window, int width, int height);
+    int initWindow();
     int width;
     int height;
     std::string windowName;
