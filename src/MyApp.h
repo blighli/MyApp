@@ -11,5 +11,5 @@ class MyApp {
     void run();
 
     private:
-    MyWindow* window{WIDTH, HEIGHT, "My OpenGL Game Engine"};
+    MyWindow window{WIDTH, HEIGHT, "My OpenGL Game Engine"};
 };

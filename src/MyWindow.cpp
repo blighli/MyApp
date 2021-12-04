@@ -1,6 +1,6 @@
-#include "MyWindow.h"
 #include <iostream>
 #include <GLAD/glad.h>
+#include "MyWindow.h"
 
 MyWindow::MyWindow(int w, int h, std::string name) : width{w}, height{h}, windowName{name}{
     initWindow();
@@ -34,7 +34,7 @@ int MyWindow::initWindow() {
         std::cout << "Failed to initialize OpenGL context" << std::endl;
         return -1;
     }
-
+    return 0;
 }
 
 void MyWindow::framebufferResizeCallback(GLFWwindow *window, int width, int height) {

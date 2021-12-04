@@ -9,7 +9,7 @@ MyApp::~MyApp() {
 }
 
 void MyApp::run() {
-    while (!window->shouldClose())
+    while (!window.shouldClose())
     {
         //processInput(window);
 
