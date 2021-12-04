@@ -18,7 +18,11 @@ list(APPEND LIBS
 
 include_directories(lib)
 
-add_executable(${PROJECT_NAME} src/main.cpp lib/GLAD/glad.c)
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+    src/MyWindow.h
+    src/MyWindow.cpp
+    lib/GLAD/glad.c)
 
 target_link_libraries(${PROJECT_NAME} ${LIBS})
 
